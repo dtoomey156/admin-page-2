@@ -1,19 +1,24 @@
 :root {
     font-size: 62.5%;
+    font-family: "Ubuntu Condensed", sans-serif;
+    --text-primary: black;
+    --text-secondary: white;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
     --drawer-color: #0ea5e9;
-
-    /* Original drawer width */
-    /* --og-drawer-width: clamp(5rem, 17vw, 10rem); */
-    --og-drawer-width: 10rem;
+    --nav-bg-1: #f8f8f8;
+    --nav-color-1: #c9c9c9;
+    --nav-color-2: #62daff6e;
+    --blue-1: #084c61;
+    --gh-avatar: url("https://github.com/dtoomey156.png");
+    --gh-avatar2: url("https://github.com/james.png");
+    --gh-avatar3: url("https://github.com/bob.png");
+    --gh-avatar: url("https://github.com/alice.png");
+    --gh-avatar: url("https://github.com/amy.png");
+    --content-gray: rgb(235,235,235);
 
     /* Extended drawer */
     --expanded-drawer-width: clamp(200px, 20vw, 280px);
-
-    /* Transitions */
-    --trans-drawer-open: width 0.4s ease-in;
-    --trans-drawer-closed: margin-left 0.4s ease-in;
-
-    --dynamic-width: ;
 
 
 }
@@ -34,22 +39,22 @@ body {
     "drawer nav nav nav"
     "drawer content content content";
     grid-template-rows: .8fr 4fr;
-    /* grid-template-columns: 10rem 1fr 1fr 1fr; */
     grid-template-columns: auto 1fr 1fr 1fr;
-    /* grid-auto-columns: max-content; */
 }
+
+
+/*  */
+/* BEGINNING OF THE DRAWER */
+/*  */
+
 
 .drawer {
     grid-area: drawer;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    row-gap: calc(2rem + .5vw); 
     background-color: var(--drawer-color);
-    /* background-color: transparent; */
-    /* width: var(--og-drawer-width); */
-    /* transition: var(--trans-drawer-open); */
     height: 100vh;
-    /* visibility: hidden; */
     overflow: hidden;
     transition: width 0.4s ease-in;
 }
@@ -60,62 +65,68 @@ body {
 
 .icon-title {
     display: none;
-    font-size: 2rem;
+    font-size: calc(2rem + 0.2vw);
 }
+
+/* Individual drawer cards */
 
 .menu-image {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    color: var(--text-secondary);
+    gap: calc(2rem + .5vw);
+}
+
+.menu-image > * {
+    cursor: pointer;
 }
 
 /* Drawer Image Sizes */
 
 .menu-image > .dash-icon {
-    width: calc(10rem + 1vw);
-    height: calc(10rem + 1vw);
+    width: calc(8rem + .7vw);
+    height: calc(8rem + .7vw);
 }
 
-/* .menu-image img {
-    width: calc(8rem + 1vw);
-    height: calc(8rem + 1vw);
-} */
 
 .drawer img {
-    width: calc(8rem + 1vw);
-    height: calc(8rem + 1vw);
+    width: calc(5rem + .5vw);
+    height: calc(5rem + .5vw);
+}
+
+.drawer div:not(:first-child) {
+    margin-left: 1.6rem;
 }
 
 
 
-/* HOVER EFFECTS */
 
-/* Hover effects for drawer width transition are set using Javascript */
+
+/* HOVER EFFECTS -  effects for drawer width transition are set using Javascript */
 
 .drawer:hover .icon-title {
     display: flex;
 }
 
-/*  */
+
 /*  */
 /* Nav section */
 /*  */
-/*  */
+
 
 .nav {
     grid-area: nav;
     background-color: grey;
-    transition: var(--trans-drawer-closed);
 }
 
-/*  */
+
 /*  */
 /* Content section */
 /*  */
-/*  */
+
 
 .content {
     grid-area: content;
     background-color: purple;
-    transition: var(--trans-drawer-closed);
 }

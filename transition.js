@@ -28,7 +28,8 @@ drawer.addEventListener("mouseout", removeExtendoClass);
     }
 
 setActualWidth();
-    
+
+addExtendoClass();
 
 
 
