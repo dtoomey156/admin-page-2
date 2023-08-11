@@ -1,0 +1,121 @@
+:root {
+    font-size: 62.5%;
+    --drawer-color: #0ea5e9;
+
+    /* Original drawer width */
+    /* --og-drawer-width: clamp(5rem, 17vw, 10rem); */
+    --og-drawer-width: 10rem;
+
+    /* Extended drawer */
+    --expanded-drawer-width: clamp(200px, 20vw, 280px);
+
+    /* Transitions */
+    --trans-drawer-open: width 0.4s ease-in;
+    --trans-drawer-closed: margin-left 0.4s ease-in;
+
+    --dynamic-width: ;
+
+
+}
+
+* {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    
+    display: grid;
+    grid-template-areas: 
+    "drawer nav nav nav"
+    "drawer content content content";
+    grid-template-rows: .8fr 4fr;
+    /* grid-template-columns: 10rem 1fr 1fr 1fr; */
+    grid-template-columns: auto 1fr 1fr 1fr;
+    /* grid-auto-columns: max-content; */
+}
+
+.drawer {
+    grid-area: drawer;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--drawer-color);
+    /* background-color: transparent; */
+    /* width: var(--og-drawer-width); */
+    /* transition: var(--trans-drawer-open); */
+    height: 100vh;
+    /* visibility: hidden; */
+    overflow: hidden;
+    transition: width 0.4s ease-in;
+}
+
+.extendo {
+    width: var(--expanded-drawer-width) !important;
+}
+
+.icon-title {
+    display: none;
+    font-size: 2rem;
+}
+
+.menu-image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Drawer Image Sizes */
+
+.menu-image > .dash-icon {
+    width: calc(10rem + 1vw);
+    height: calc(10rem + 1vw);
+}
+
+/* .menu-image img {
+    width: calc(8rem + 1vw);
+    height: calc(8rem + 1vw);
+} */
+
+.drawer img {
+    width: calc(8rem + 1vw);
+    height: calc(8rem + 1vw);
+}
+
+
+
+/* HOVER EFFECTS */
+
+/* Hover effects for drawer width transition are set using Javascript */
+
+.drawer:hover .icon-title {
+    display: flex;
+}
+
+/*  */
+/*  */
+/* Nav section */
+/*  */
+/*  */
+
+.nav {
+    grid-area: nav;
+    background-color: grey;
+    transition: var(--trans-drawer-closed);
+}
+
+/*  */
+/*  */
+/* Content section */
+/*  */
+/*  */
+
+.content {
+    grid-area: content;
+    background-color: purple;
+    transition: var(--trans-drawer-closed);
+}
