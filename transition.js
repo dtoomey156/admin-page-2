@@ -1,11 +1,14 @@
-let drawer = document.querySelector(".drawer");
-let dashIcon = document.querySelector(".dash-icon");
+const drawer = document.querySelector(".drawer");
+const dashIcon = document.querySelector(".dash-icon");
+const divider = document.querySelectorAll(".divider-bar");
 let actualWidth = "";
 
 
+
+
 window.addEventListener("resize", setActualWidth);
-drawer.addEventListener("mouseover", addExtendoClass);
-drawer.addEventListener("mouseout", removeExtendoClass);
+drawer.addEventListener("mouseover", addTransitions);
+drawer.addEventListener("mouseout", removeTransitions);
 
     function setActualWidth() {
         let CssObj = getComputedStyle(dashIcon);
@@ -14,22 +17,38 @@ drawer.addEventListener("mouseout", removeExtendoClass);
         console.log("fired " + actualWidth);
     }
 
-    function addExtendoClass() {
+    function addTransitions() {
         // drawer.style.width = actualWidth;
         drawer.className += " extendo";
+        dividerBarTransition();
     }
 
-    function removeExtendoClass() {
+    function removeTransitions() {
         // location.reload();
         // actualWidth = 20 + "px";
         console.log("mouse out " + actualWidth);
         // drawer.style.width = actualWidth;
         drawer.classList.remove("extendo");
+        removeDividerStyle();
     }
 
-setActualWidth();
+    function dividerBarTransition() {
+        divider.forEach(elem => {
+            // elem.style.borderColor = "white";
+            elem.style.backgroundColor = "white";
+        })
+        
+    }
 
-addExtendoClass();
+    function removeDividerStyle() {
+        divider.forEach(elem => {
+            elem.style.backgroundColor = "";
+        })
+        
+    }
+
+
+setActualWidth();
 
 
 
