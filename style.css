@@ -24,7 +24,6 @@
 }
 
 * {
-    font-size: 1.6rem;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -52,45 +51,63 @@ body {
     grid-area: drawer;
     display: flex;
     flex-direction: column;
-    row-gap: calc(2rem + .5vw); 
     background-color: var(--drawer-color);
     height: 100vh;
-    overflow: hidden;
-    transition: width 0.4s ease-in;
+    /* overflow: hidden; */
+    transition: width 0.5s ease-in;
 }
+
+/* Extended Drawer Class */
 
 .extendo {
     width: var(--expanded-drawer-width) !important;
 }
 
-.icon-title {
+/* Drawer Card Title */
+
+.dash-title {
     display: none;
-    font-size: calc(2rem + 0.2vw);
-    transition: display 0.4s ease-in;
+    font-size: calc(3rem + 0.2vw);
+    margin-left: .5vw;
 }
 
-/* Individual drawer cards */
+.icon-title {
+    /* display: none; */
+    font-size: calc(2rem + 0.2vw);
+    margin-left: calc(2rem + .5vw);
+    color: rgba(255, 255, 255, 0);
+    transition: color 1.4s ease;
+    
+}
+
+.text-hide {
+    opacity: 0;
+
+}
+
+/* All Individual Drawer Cards */
 
 .menu-image {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     color: var(--text-secondary);
-    gap: calc(2rem + .5vw);
+    margin-top: calc(3rem + .5vw);
 }
 
 .menu-image > * {
     cursor: pointer;
 }
 
-/* Drawer Image Sizes */
+/* DRAWER IMAGE SIZES */
 
+/* Dashboard Icon */
 .menu-image > .dash-icon {
     width: calc(8rem + .7vw);
     height: calc(8rem + .7vw);
 }
 
-
+/* All Other Icons */
 .drawer img {
     width: calc(5rem + .5vw);
     height: calc(5rem + .5vw);
@@ -125,9 +142,10 @@ body {
 
 /* HOVER EFFECTS -  effects for drawer width transition are set using Javascript */
 
-.drawer:hover .icon-title {
+/* .drawer:hover .icon-title,
+.drawer:hover .dash-title {
     display: flex;
-}
+} */
 
 
 /*  */
