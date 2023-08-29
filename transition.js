@@ -4,6 +4,7 @@ const iconTitle = document.querySelectorAll(".icon-title");
 const divider = document.querySelectorAll(".divider-bar");
 let actualWidth = "";
 
+let dashIconStyleSheet = document.styleSheets[1].cssRules[5].style;
 let iconTitleStyleSheet = document.styleSheets[1].cssRules[6].style;
 
 
@@ -37,6 +38,7 @@ drawer.addEventListener("mouseout", removeTransitions);
     }
 
     function textOpacityTrans() {
+        dashIconStyleSheet.setProperty("color", "white");
         iconTitleStyleSheet.setProperty("color", "white");
     }
 
@@ -47,7 +49,7 @@ drawer.addEventListener("mouseout", removeTransitions);
         // drawer.style.width = actualWidth;
         drawer.classList.remove("extendo");
         removeDividerStyle();
-        removeIconTitleStyles();
+        removeTitleStyles();
     }
 
     function removeDividerStyle() {
@@ -56,8 +58,9 @@ drawer.addEventListener("mouseout", removeTransitions);
         })
     }
 
-    function removeIconTitleStyles() {
+    function removeTitleStyles() {
         iconTitleStyleSheet.setProperty("color", "rgba(255, 255, 255, 0");
+        dashIconStyleSheet.setProperty("color", "rgba(255, 255, 255, 0");
     }
 
     
